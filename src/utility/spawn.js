@@ -3,7 +3,7 @@ function randomCoord(board){
   board.forEach((arr,x) =>{
     arr.forEach((elem,y) =>{
       if(elem === 0){
-        emptyCell = [...emptyCell, [x,y]]
+        emptyCell.push([x,y])
       }
     })
   })
