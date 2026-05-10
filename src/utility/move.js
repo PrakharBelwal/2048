@@ -1,10 +1,4 @@
-function rotate(board){
-  let rotatedBoard = board.map(row => [...row])
-  board.forEach((row,x) => row.forEach((elem,y) => {
-    rotatedBoard[y][x] = elem
-  }))
-  return rotatedBoard
-}
+import rotate from "./rotate"
 
 export default function move(board, dir){
   let newBoard = board.map(row => [...row])
