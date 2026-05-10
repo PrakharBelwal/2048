@@ -2,6 +2,7 @@ import { useState } from "react"
 import spawn from "../utility/spawn"
 import { useEffect } from "react"
 import move from "../utility/move"
+import merge from "../utility/merge"
 
 const keyPress = ['w','s','a','d','ArrowUp','ArrowDown','ArrowLeft','ArrowRight']
 let undoHistory
@@ -19,6 +20,7 @@ function GameBoard(){
     if(keyPress.includes(e.key)){
       if(e.repeat) return
       setBoard(prev => move(prev, e.key))
+      setBoard(prev => merge(prev, e.key))
       setBoard(prev => JSON.stringify(undoHistory) === JSON.stringify(prev) ? prev : spawn(prev))
     }
   }
