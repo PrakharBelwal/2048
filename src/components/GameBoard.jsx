@@ -4,6 +4,7 @@ import { useEffect } from "react"
 import move from "../utility/move"
 
 const keyPress = ['w','s','a','d','ArrowUp','ArrowDown','ArrowLeft','ArrowRight']
+let undoHistory
 
 function GameBoard(){
 
@@ -18,16 +19,21 @@ function GameBoard(){
     if(keyPress.includes(e.key)){
       if(e.repeat) return
       setBoard(prev => move(prev, e.key))
-      setBoard(prev => spawn(prev))
+      setBoard(prev => JSON.stringify(undoHistory) === JSON.stringify(prev) ? prev : spawn(prev))
     }
   }
 
   useEffect(() => {
+    setBoard(prev => spawn(prev))
     window.addEventListener("keydown",e=>{handleEvent(e)})
     return () => {
       window.removeEventListener("keydown", e=>{handleEvent(e)})
     }
   },[])
+
+  useEffect(() => {
+    undoHistory = board
+  },[board])
 
   return (
     <>
