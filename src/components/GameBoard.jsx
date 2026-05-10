@@ -1,6 +1,9 @@
 import { useState } from "react"
 import spawn from "../utility/spawn"
 import { useEffect } from "react"
+import move from "../utility/move"
+
+const keyPress = ['w','s','a','d','ArrowUp','ArrowDown','ArrowLeft','ArrowRight']
 
 function GameBoard(){
 
@@ -11,14 +14,18 @@ function GameBoard(){
     [0,0,0,0]
   ])
 
-  function handleEvent(){
-    setBoard(prev => spawn(prev))
+  function handleEvent(e){
+    if(keyPress.includes(e.key)){
+      if(e.repeat) return
+      setBoard(prev => move(prev, e.key))
+      setBoard(prev => spawn(prev))
+    }
   }
 
   useEffect(() => {
-    window.addEventListener("keydown",handleEvent)
+    window.addEventListener("keydown",e=>{handleEvent(e)})
     return () => {
-      window.removeEventListener("keydown", handleEvent)
+      window.removeEventListener("keydown", e=>{handleEvent(e)})
     }
   },[])
 
