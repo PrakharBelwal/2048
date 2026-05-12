@@ -32,7 +32,6 @@ export default function merge(board, dir){
       break
     case 'd':
     case 'ArrowRight':
-      console.log(newBoard)
       newBoard.forEach((row,x) => {
         for(let y = 3; y > 0; y--){
           if(newBoard[x][y] === newBoard[x][y-1]){
@@ -47,7 +46,6 @@ export default function merge(board, dir){
       newBoard.forEach((row,x) => {
         for(let y = 0; y < 3; y++){
           if(newBoard[x][y] === newBoard[x][y+1]){
-            console.log(newBoard[x][y],newBoard[x][y+1])
             newBoard[x][y] = newBoard[x][y] + newBoard[x][y+1]
             newBoard[x][y+1] = 0
           }

@@ -5,7 +5,6 @@ export default function move(board, dir){
   switch(dir){
     case 'w':
     case 'ArrowUp':
-      console.log('Up')
       newBoard = rotate(board)
       newBoard = newBoard.map(row => {
         let filtered = row.filter(elem => elem !== 0)
@@ -20,7 +19,6 @@ export default function move(board, dir){
       break
     case 's':
     case 'ArrowDown':
-      console.log('Down')
       newBoard = rotate(board)
       newBoard = newBoard.map(row => {
         let filtered = row.filter(elem => elem !== 0)
@@ -35,7 +33,6 @@ export default function move(board, dir){
       break
     case 'a':
     case 'ArrowLeft':
-      console.log('Left')
       newBoard = board.map(row => {
         let filtered = row.filter(elem => elem !== 0)
         if(filtered.length < row.length){
@@ -48,7 +45,6 @@ export default function move(board, dir){
       break
     case 'd':
     case 'ArrowRight':
-      console.log('Right')
       newBoard = board.map(row => {
         let filtered = row.filter(elem => elem !== 0)
         if(filtered.length < row.length){
