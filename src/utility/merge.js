@@ -5,6 +5,7 @@ export default function merge(board, dir){
   let newBoard = board.map(row => [...row])
   switch(dir){
     case 'w':
+    case 'W':
     case 'ArrowUp':
       newBoard = rotate(newBoard)
       newBoard.forEach((row,x) => {
@@ -18,6 +19,7 @@ export default function merge(board, dir){
       newBoard = rotate(newBoard)
       break
     case 's':
+    case 'S':
     case 'ArrowDown':
       newBoard = rotate(newBoard)
       newBoard.forEach((row,x) => {
@@ -31,6 +33,7 @@ export default function merge(board, dir){
       newBoard = rotate(newBoard)
       break
     case 'd':
+    case 'D':
     case 'ArrowRight':
       newBoard.forEach((row,x) => {
         for(let y = 3; y > 0; y--){
@@ -42,6 +45,7 @@ export default function merge(board, dir){
       })
       break
     case 'a':
+    case 'A':
     case 'ArrowLeft':
       newBoard.forEach((row,x) => {
         for(let y = 0; y < 3; y++){

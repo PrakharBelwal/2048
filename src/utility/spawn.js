@@ -16,10 +16,10 @@ function randomCoord(board){
 
 export default function spawn(board){
   let newBoard = board.map(row => [...row])
-  const probOfSpawn4 = Math.floor(Math.random()*2)
+  const probOfSpawn4 = (Math.random())
   let [x,y] = randomCoord(board)
   if(x != -1 && y != -1){
-    if(probOfSpawn4){
+    if(probOfSpawn4 > 0.9){
       newBoard[x][y] = 4
     }else{
       newBoard[x][y] = 2
