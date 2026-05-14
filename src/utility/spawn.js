@@ -24,8 +24,6 @@ export default function spawn(board){
     }else{
       newBoard[x][y] = 2
     }
-  }else{
-    console.log("Game Over")
   }
   return newBoard
 }
