@@ -59,7 +59,7 @@ const TILE_COLOR = {
     text: "#F9F6F2"
   },
   4096: {
-    bg: "#3C3A32",      // Custom extension beyond the original game
+    bg: "#3C3A32",
     text: "#F9F6F2"
   }
 };
